@@ -5,13 +5,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      window: null,
       clickX: null,
       clickY: null,
       mouseoverX: null,
       mouseoverY: null,
-      // 
-      renderRect: true,
     }
     this.handleMousedown = this.handleMousedown.bind(this);
     this.handleMousemove = this.handleMousemove.bind(this);
@@ -24,22 +21,19 @@ class App extends React.Component {
   }
   handleMousedown(event) {
     this.setState({
-      clickX: event.clientX - 11,
-      clickY: event.clientY - 11,
-      renderRect: true,
+      clickX: event.clientX - 10,
+      clickY: event.clientY - 10,
     });
   }
   handleMousemove(event) {
     this.setState({
-      mouseoverX: event.clientX - 11,
-      mouseoverY: event.clientY - 11,
+      mouseoverX: event.clientX - 10,
+      mouseoverY: event.clientY - 10,
     });
   }
   handleMouseup() {
     this.setState({
       clickX: null,
-      clickY: null,
-      renderRect: false,
     });
   }
   render() {
@@ -50,7 +44,6 @@ class App extends React.Component {
           y={this.state.clickY}
           width={this.state.mouseoverX - this.state.clickX}
           height={this.state.mouseoverY - this.state.clickY}
-          style={{ "fillOpacity": "0", "stroke": "blue", "strokeWidth": "1", "strokeDasharray": "3 3" }}
         />
       </div>
     )

@@ -1,9 +1,6 @@
 import React from 'react';
 
 class Rect extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   calcX() {
     if (this.props.width < 0) {
       return this.props.x + this.props.width;
@@ -38,7 +35,7 @@ class Rect extends React.Component {
               y={this.calcY()}
               width={this.calcWidth()}
               height={this.calcHeight()}
-              style={this.props.style}
+              style={{ "fillOpacity": "0", "stroke": "#4d0099", "strokeDasharray": [3, 2] }}
             />
           </svg>
         </div>
